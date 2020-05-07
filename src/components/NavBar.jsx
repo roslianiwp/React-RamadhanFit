@@ -6,12 +6,21 @@ import "../css/navbar.css";
 
 // INI HARUS DIBIKIN STATELESS!!!!!
 const Navigation = (props, postSignout) => {
+  const changeRouter = async (keyword) => {
+    if (props.handleRouter) {
+      props.handleRouter(keyword);
+    } else {
+      await props.history.replace("/news-keyword/" + keyword);
+    }
+  };
+
   postSignout = () => {
     props.doSignOut();
     if (!props.login) {
       props.history.push("/");
     }
   };
+
   const login = props.login;
   return (
     <div>
@@ -68,11 +77,20 @@ const Navigation = (props, postSignout) => {
                 UpToDate Ramadhan Food
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link class="dropdown-item" href="" to="/iftar">
+
+                <Link
+                  class="dropdown-item"
+                  href=""
+                  onClick={() => changeRouter("resep buka")}
+                >
                   Iftar & Sahur
                 </Link>
-                <Link class="dropdown-item" href="/sahur">
-                  Healthy Food
+                <Link
+                  class="dropdown-item"
+                  onClick={() => changeRouter("puasa sehat")}
+                >
+                  Suggestions
+
                 </Link>
               </div>
             </li>
