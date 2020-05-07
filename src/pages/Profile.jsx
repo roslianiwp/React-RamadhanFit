@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-// import Navigation from "../components/NavigationBar";
+import Navigation from "../components/NavBar";
 import { connect } from "react-redux";
 import "../css/Profile.css";
+import FooterBar from "../components/Footer";
 
 class Profile extends Component {
   // untuk meredirect ke halaman signin apabila belum login
@@ -12,7 +13,7 @@ class Profile extends Component {
     } else {
       return (
         <div>
-          {/* <Navigation {...this.props} /> */}
+          <Navigation {...this.props} />
           <div className="d-flex justify-content-center text-center">
             <div className="card" style={{ width: "18rem" }}>
               <img
@@ -31,6 +32,7 @@ class Profile extends Component {
               </div>
             </div>
           </div>
+          <FooterBar />
         </div>
       );
     }

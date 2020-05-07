@@ -3,6 +3,8 @@ import NewsPage from "../components/News";
 import { connect } from "react-redux";
 import { getRecipeNews } from "../store/action/newsAction";
 import LittleNews from "../components/LittleNews";
+import Navigation from "../components/NavBar";
+import FooterBar from "../components/Footer";
 
 class Home extends Component {
   componentDidMount = async () => {
@@ -14,6 +16,7 @@ class Home extends Component {
     console.log("responsesssssssssssss", this.props);
     return (
       <React.Fragment>
+        <Navigation />
         <div className="container">
           {this.props.dataRecipeNews.slice(0, 1).map((el, index) => {
             return (
@@ -40,6 +43,7 @@ class Home extends Component {
             })}
           </div>
         </div>
+        <FooterBar />
       </React.Fragment>
     );
   }
