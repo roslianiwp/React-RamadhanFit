@@ -4,6 +4,7 @@ import Navigation from "../components/NavBar";
 import FooterBar from "../components/Footer";
 import { Redirect } from "react-router-dom";
 import { countBMR, getHealthRecipe } from "../store/action/actionNutrient";
+import { doSignOut } from "../store/action/actionUser";
 import FoodNutrientProfile from "../components/FoodNutrientProfile";
 import FoodNutrientMenu from "../components/FoodNutrientMenu";
 
@@ -29,7 +30,10 @@ class Nutrient extends Component {
     } else {
       return (
         <React.Fragment>
-          <Navigation {...this.props} />
+          <Navigation
+            doSignOut={() => this.props.doSignOut()}
+            {...this.props}
+          />
           <div className="container">
             <div className="row">
               <div className="col-sm-12 d-flex justify-content-center">
@@ -85,6 +89,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   countBMR,
   getHealthRecipe,
+  doSignOut,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nutrient);

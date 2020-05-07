@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import Navigation from "../components/NavBar";
 import { connect } from "react-redux";
-import "../css/Profile.css";
 import FooterBar from "../components/Footer";
+import { doSignOut } from "../store/action/actionUser";
 
 class Profile extends Component {
   // untuk meredirect ke halaman signin apabila belum login
@@ -15,6 +15,7 @@ class Profile extends Component {
         <div>
           <Navigation
             login={this.props.login}
+            doSignOut={() => this.props.doSignOut()}
             avatar={this.props.dataUser.avatar}
             name={this.props.dataUser.name}
             email={this.props.dataUser.email}
@@ -51,4 +52,8 @@ const mapStateToProps = (state) => {
     dataUser: state.user,
   };
 };
-export default connect(mapStateToProps)(Profile);
+
+const mapDispatchToProps = {
+  doSignOut,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

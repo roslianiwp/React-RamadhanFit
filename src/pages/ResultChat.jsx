@@ -4,6 +4,7 @@ import {
   getRecipeNews,
   handleRequestKeyword,
 } from "../store/action/actionNews";
+import { doSignOut } from "../store/action/actionUser";
 import { handleInputChat, talkChat } from "../store/action/actionChatBot";
 import Navigation from "../components/NavBar";
 import FooterBar from "../components/Footer";
@@ -21,7 +22,7 @@ class ResultChat extends Component {
     // console.warn("cek dari resultchat", this.props);
     return (
       <React.Fragment>
-        <Navigation {...this.props} />
+        <Navigation doSignOut={() => this.props.doSignOut()} {...this.props} />
         <div className="container">
           <h3 mb-5>Search Result</h3>
           <div className="row">
@@ -63,6 +64,7 @@ const mapDispatchToProps = {
   handleRequestKeyword,
   handleInputChat,
   talkChat,
+  doSignOut,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResultChat);

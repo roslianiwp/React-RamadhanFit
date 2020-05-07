@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import Navigation from "../components/NavBar";
 import FooterBar from "../components/Footer";
 import { connect } from "react-redux";
-import { doLogin, changeInputUser } from "../store/action/actionUser";
+import {
+  doLogin,
+  changeInputUser,
+  doSignOut,
+} from "../store/action/actionUser";
 import "../css/SignIn.css";
 class SignIn extends Component {
   // untuk meredirect ke halaman profile apabila telah login
@@ -21,7 +25,7 @@ class SignIn extends Component {
     console.warn("cek props dari page signin", this.props);
     return (
       <div>
-        <Navigation {...this.props} />
+        <Navigation doSignOut={() => this.props.doSignOut()} {...this.props} />
         <div className="container">
           <div className="d-flex justify-content-center">
             <div className="card" style={{ width: "18rem" }}>
@@ -92,6 +96,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   changeInput: (e) => changeInputUser(e),
-  doLogin: doLogin,
+  doLogin,
+  doSignOut,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
