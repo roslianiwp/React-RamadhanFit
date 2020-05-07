@@ -5,9 +5,11 @@ import {
   getRecipeNews,
   handleRequestKeyword,
 } from "../store/action/newsAction";
+import { handleInputChat } from "../store/action/actionChatBot";
 import LittleNews from "../components/LittleNews";
 import Navigation from "../components/NavBar";
 import FooterBar from "../components/Footer";
+import ChatBot from "../components/ChatBot";
 
 class Home extends Component {
   componentDidMount = async () => {
@@ -59,6 +61,11 @@ class Home extends Component {
             })}
           </div>
         </div>
+        <ChatBot
+          keyword={this.props.ngobrol}
+          doChat={(event) => this.props.handleInputChat(event)}
+          {...this.props}
+        />
         <FooterBar />
       </React.Fragment>
     );
@@ -69,12 +76,15 @@ const mapStateToProps = (state) => {
   return {
     dataRecipeNews: state.newsRecipe.data,
     dataSuggestion: state.newsRecipe.suggest,
+    jawaban: state.chat.jawaban,
+    ngobrol: state.chat.search,
   };
 };
 
 const mapDispatchToProps = {
   getRecipeNews,
   handleRequestKeyword,
+  handleInputChat,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

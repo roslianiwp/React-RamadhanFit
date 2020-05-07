@@ -10,7 +10,7 @@ const Navigation = (props, postSignout) => {
     if (props.handleRouter) {
       props.handleRouter(keyword);
     } else {
-      await props.history.replace("/news-keyword/" + keyword);
+      props.history.push("/news-keyword/" + keyword);
     }
   };
 
@@ -59,11 +59,6 @@ const Navigation = (props, postSignout) => {
                 Food Nutrient<span className="sr-only">(current)</span>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/sport">
-                Sport Fast <span className="sr-only">(current)</span>
-              </Link>
-            </li>
             <li class="nav-item dropdown">
               <Link
                 class="nav-link dropdown-toggle"
@@ -77,7 +72,6 @@ const Navigation = (props, postSignout) => {
                 UpToDate Ramadhan Food
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
                 <Link
                   class="dropdown-item"
                   href=""
@@ -90,7 +84,6 @@ const Navigation = (props, postSignout) => {
                   onClick={() => changeRouter("puasa sehat")}
                 >
                   Suggestions
-
                 </Link>
               </div>
             </li>
