@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 // import Home from "../pages/Home";
@@ -13,7 +14,7 @@ const MainRoutes = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
-          {/* <Route exact path="/" component={Home} /> */}
+          <Route exact path="/" component={Home} />
           <Route exact path="/" component={SignIn} />
           <Route exact path="/profile" component={Profile} />
           {/* <Route exact path="/film" component={MovieDetail} />
@@ -23,5 +24,5 @@ const MainRoutes = () => {
     </Provider>
   );
 };
+export default MainRoute;
 
-export default MainRoutes;
