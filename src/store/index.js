@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
-import newRecipeReducer from "./reducer/newsReducer";
+import newRecipeReducer from "./reducer/reducerNews";
 import userReducer from "./reducer/reducerUser";
 import nutrientReducer from "./reducer/reducerNutrient";
 import chatReducer from "./reducer/reducerChatBot";

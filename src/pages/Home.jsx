@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {
   getRecipeNews,
   handleRequestKeyword,
-} from "../store/action/newsAction";
+} from "../store/action/actionNews";
 import { handleInputChat } from "../store/action/actionChatBot";
 import { doSignOut } from "../store/action/actionUser";
 import LittleNews from "../components/LittleNews";
@@ -33,10 +33,10 @@ class Home extends Component {
           handleRouter={(e) => this.handleRequestKeywordNews(e)}
           getRecipeNews={() => this.getRecipeNews()}
           doSignOut={() => this.props.doSignOut()}
-          login={this.login}
-          avatar={this.props.avatar}
-          name={this.props.name}
-          email={this.props.email}
+          login={this.props.login}
+          avatar={this.props.dataUser.avatar}
+          name={this.props.dataUser.name}
+          email={this.props.dataUser.email}
           {...this.props}
         />
         <div className="container">

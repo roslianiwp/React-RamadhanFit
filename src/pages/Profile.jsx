@@ -13,7 +13,13 @@ class Profile extends Component {
     } else {
       return (
         <div>
-          <Navigation {...this.props} />
+          <Navigation
+            login={this.props.login}
+            avatar={this.props.dataUser.avatar}
+            name={this.props.dataUser.name}
+            email={this.props.dataUser.email}
+            {...this.props}
+          />
           <div className="d-flex justify-content-center text-center">
             <div className="card" style={{ width: "18rem" }}>
               <img
@@ -41,6 +47,7 @@ class Profile extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    login: state.user.is_login,
     dataUser: state.user,
   };
 };
