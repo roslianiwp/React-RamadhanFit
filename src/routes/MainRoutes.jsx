@@ -7,6 +7,7 @@ import Profile from "../pages/Profile";
 import SignIn from "../pages/SignIn";
 import { Provider } from "react-redux";
 import store from "../store";
+import Nutrient from "../pages/FoodNutrient";
 
 const MainRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const MainRoutes = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/nutrient" component={Nutrient} />
           {/* <Route exact path="/film" component={MovieDetail} />
           <Route exact path="/film/:category" component={MovieDetail} /> */}
         </Switch>
