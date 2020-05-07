@@ -8,11 +8,12 @@ export const doLogin = () => {
     };
     await axios
       .post(
-        "https://5eb39213974fee0016ecd62d.mockapi.io/usersmember/1",
+        "https://5eb39213974fee0016ecd62d.mockapi.io/usersmember",
         bodyRequest
       )
       .then(async (response) => {
-        dispatch({ type: "SUCCESS_LOGIN", payload: response.data.user_data });
+        console.warn("cek api", response);
+        dispatch({ type: "SUCCESS_LOGIN", payload: response.data });
       })
       .catch(function (error) {
         console.log(error);
