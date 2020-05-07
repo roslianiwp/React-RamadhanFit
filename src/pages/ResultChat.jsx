@@ -22,7 +22,13 @@ class ResultChat extends Component {
     // console.warn("cek dari resultchat", this.props);
     return (
       <React.Fragment>
-        <Navigation doSignOut={() => this.props.doSignOut()} {...this.props} />
+        <Navigation
+          name={this.props.name}
+          avatar={this.props.avatar}
+          email={this.props.email}
+          doSignOut={() => this.props.doSignOut()}
+          {...this.props}
+        />
         <div className="container">
           <h3 mb-5>Search Result</h3>
           <div className="row">
@@ -56,6 +62,9 @@ const mapStateToProps = (state) => {
     jawaban: state.chat.jawaban,
     ngobrol: state.chat.search,
     login: state.user.is_login,
+    name: state.user.name,
+    avatar: state.user.avatar,
+    email: state.user.email,
   };
 };
 

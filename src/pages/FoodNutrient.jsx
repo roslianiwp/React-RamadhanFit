@@ -31,6 +31,9 @@ class Nutrient extends Component {
       return (
         <React.Fragment>
           <Navigation
+            name={this.props.name}
+            avatar={this.props.avatar}
+            email={this.props.email}
             doSignOut={() => this.props.doSignOut()}
             {...this.props}
           />
@@ -73,11 +76,12 @@ class Nutrient extends Component {
 const mapStateToProps = (state) => {
   return {
     name: state.user.name,
+    avatar: state.user.avatar,
+    email: state.user.email,
     gender: state.user.gender,
     age: state.user.age,
     weight: state.user.weight,
     height: state.user.height,
-    avatar: state.user.avatar,
     status: state.nutrient.status,
     bmr: state.nutrient.bmr,
     login: state.user.is_login,
