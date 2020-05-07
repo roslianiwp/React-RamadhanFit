@@ -60,7 +60,6 @@ const Navigation = (props, postSignout) => {
                 Food Nutrient<span className="sr-only">(current)</span>
               </Link>
             </li>
-
             <li class="nav-item dropdown ml-5">
               <Link
                 class="nav-link dropdown-toggle"
