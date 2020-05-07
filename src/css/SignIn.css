@@ -1,0 +1,24 @@
+#logokabar {
+  width: 100px;
+  height: 100px;
+}
+
+#movie {
+  height: 300px;
+}
+
+.cont-movie {
+  margin-top: 50px;
+}
+
+#button {
+  border-radius: 50px;
+  width: 400px;
+}
+
+.signin {
+  border: 1px grey;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px #888888;
+  padding: 50px 50px;
+}

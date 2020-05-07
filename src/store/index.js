@@ -1,19 +1,16 @@
-import {
-    createStore,
-    combineReducers,
-    applyMiddleware
-} from "redux";
-import newRecipeReducer from "./reducer/newsReducer";
-import thunk from "redux-thunk";
 
+import { createStore, applyMiddleware, combineReducers } from "redux";
+import thunk from "redux-thunk";
+import newRecipeReducer from "./reducer/newsReducer";
+import userReducer from "./reducer/reducerUser";
 
 const rootReducer = combineReducers({
-    newsRecipe: newRecipeReducer
-})
+  newsRecipe: newRecipeReducer
+  user: userReducer,
+});
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 store.subscribe(() => {
-    console.log(store.getState())
-})
-
+  console.warn("cek state store", store.getState());
+});
 export default store;

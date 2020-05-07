@@ -1,11 +1,15 @@
-import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
-import MainRoute from './routes/MainRoutes';
+
+import React from "react";
+import "./App.css";
+// import "./css/style.css";
+import MainRoutes from "./routes/MainRoutes";
 
 function App() {
-  return ( <
-    MainRoute / >
+  return (
+    <div className="App">
+      <MainRoutes />
+    </div>
+
   );
 }
 
