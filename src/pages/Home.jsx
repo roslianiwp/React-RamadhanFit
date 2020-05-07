@@ -6,6 +6,7 @@ import {
   handleRequestKeyword,
 } from "../store/action/newsAction";
 import { handleInputChat } from "../store/action/actionChatBot";
+import { doSignOut } from "../store/action/actionUser";
 import LittleNews from "../components/LittleNews";
 import Navigation from "../components/NavBar";
 import FooterBar from "../components/Footer";
@@ -25,14 +26,21 @@ class Home extends Component {
   };
 
   render() {
-    console.log("responsesssssssssssss", this.props);
     return (
       <React.Fragment>
         <Navigation
+          history={this.history}
           handleRouter={(e) => this.handleRequestKeywordNews(e)}
           getRecipeNews={() => this.getRecipeNews()}
+          doSignOut={() => this.props.doSignOut()}
+          login={this.login}
+          avatar={this.props.avatar}
+          name={this.props.name}
+          email={this.props.email}
+          {...this.props}
         />
         <div className="container">
+          <h1>Ramadhan Information</h1>
           {this.props.dataRecipeNews.slice(0, 1).map((el, index) => {
             return (
               <NewsPage
@@ -78,6 +86,8 @@ const mapStateToProps = (state) => {
     dataSuggestion: state.newsRecipe.suggest,
     jawaban: state.chat.jawaban,
     ngobrol: state.chat.search,
+    login: state.user.is_login,
+    dataUser: state.user,
   };
 };
 
@@ -85,6 +95,7 @@ const mapDispatchToProps = {
   getRecipeNews,
   handleRequestKeyword,
   handleInputChat,
+  doSignOut,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
