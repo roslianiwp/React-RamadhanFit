@@ -1,86 +1,66 @@
 import React from "react";
+import "../css/footer.css";
 
 const FooterBar = () => {
   return (
-    <div>
-      <footer class="container-fluid">
-        <div
-          class="row justify-content-center"
-          style={{
-            backgroundColor: "#50D027",
-            marginTop: "100px",
-            paddingBottom: "42px",
-          }}
-        >
-          <div
-            class="col-lg-5 d-flex justify-content-center"
-            style={{ marginTop: "60px" }}
-          >
+    <div class="container-fluid">
+      <div
+        id="shadow-box-footer"
+        className="rounded-top p-5"
+        style={{
+          backgroundColor: "white",
+          borderColor: "black",
+        }}
+      >
+        <div class="row">
+          <div class="col-4 d-flex justify-content-center">
             <img
-              class="logo-footer logo-awal"
-              src={require("../images/twitter.png")}
+              class="logo-footer"
+              src={require("../images/kareem.jpg")}
               alt="logoawal"
             />
           </div>
-          <div
-            class="col-lg-4 d-flex justify-content-center"
-            style={{ paddingTop: "44px" }}
-          >
-            <ul class="row" id="logo-sosmed">
-              {" "}
-              <span
-                style={{
-                  color: "white",
-                  fontSize: "14px",
-                  marginTop: "20px",
-                }}
-              >
-                Social Media
-              </span>
-              <li class="col-lg-12 justify-content-center">
-                {" "}
-                <a href="https://facebook.com">
-                  <img
-                    class="logo"
-                    src={require("../images/facebook.png")}
-                    style={{ marginRight: "10px" }}
-                    alt="logo-fb"
-                  />
-                </a>{" "}
-                <a href="https://twitter.com">
-                  <img
-                    class="logo"
-                    src={require("../images/twitter.png")}
-                    style={{ marginRight: "10px" }}
-                    alt="logo-twitter"
-                  />
-                </a>
-                <a href="https://instagram.com">
-                  <img
-                    class="logo"
-                    src={require("../images/instagram.png")}
-                    style={{ marginRight: "10px" }}
-                    alt="logo-ig"
-                  />
-                </a>
-              </li>
-            </ul>
+          <div class="col-4 d-flex justify-content-center">
+            <table>
+              <tr>
+                <td>
+                  <span className="text-primary foot-text">Social Media</span>{" "}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://facebook.com">
+                    <i class="fab fa-facebook-square icon"></i>
+                    <span className="name-icon">facebook</span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://twitter.com">
+                    <i class="fab fa-twitter icon"></i>
+                    <span className="name-icon">@twitter</span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="https://instagram.com">
+                    <i class="fab fa-instagram icon"></i>
+                    <span className="name-icon">@instagram</span>
+                  </a>
+                </td>
+              </tr>
+            </table>
           </div>
-          <div class="col-lg-3" style={{ marginTop: "30px" }}>
-            <p
-              style={{
-                color: "white",
-                fontSize: "14px",
-                textAlign: "center",
-                paddingTop: "63px",
-              }}
-            >
+          <div class="col-4 d-flex justify-content-center">
+            <p className="text-primary foot-text">
               {" "}
               Copyright &copy; 2020 Ramadhan
             </p>
           </div>
         </div>
-      </footer>
+      </div>
     </div>
   );
 };
