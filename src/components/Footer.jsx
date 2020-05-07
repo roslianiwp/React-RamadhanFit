@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/footer.css";
+import { Link } from "react-router-dom";
 
 const FooterBar = () => {
   return (
@@ -13,14 +14,16 @@ const FooterBar = () => {
         }}
       >
         <div class="row">
-          <div class="col-4 d-flex justify-content-center">
-            <img
-              class="logo-footer"
-              src={require("../images/kareem.jpg")}
-              alt="logoawal"
-            />
+          <div class="col-lg-4 col-sm-12 d-flex justify-content-center">
+            <Link to="/">
+              <img
+                class="logo-footer"
+                src={require("../images/kareem.jpg")}
+                alt="logoawal"
+              />
+            </Link>
           </div>
-          <div class="col-4 d-flex justify-content-center">
+          <div class="col-lg-4 col-sm-12 d-flex justify-content-center">
             <table>
               <tr>
                 <td>
@@ -53,7 +56,7 @@ const FooterBar = () => {
               </tr>
             </table>
           </div>
-          <div class="col-4 d-flex justify-content-center">
+          <div class="col-lg-4 col-sm-12 d-flex justify-content-center">
             <p className="text-primary foot-text">
               {" "}
               Copyright &copy; 2020 Ramadhan

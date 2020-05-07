@@ -37,7 +37,7 @@ const Navigation = (props, postSignout) => {
           Ramadhan Fit
         </Link>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler navbar-light"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -94,41 +94,39 @@ const Navigation = (props, postSignout) => {
             </li>
           </ul>
           {login ? (
-            <ul className="navbar-nav  ml-auto m-5">
-              <li class="nav-item dropdown">
+            <ul className="navbar-nav  ml-auto mx-5 py-5">
+              <li class="nav-item dropleft">
                 <Link
                   class="nav-link dropdown-toggle profil-drop"
                   href=""
                   id="navbarDropdown"
                   role="button"
                   data-toggle="dropdown"
-                  aria-haspopup="true"
+                  aria-haspopup="false"
                   aria-expanded="false"
                 >
                   Profil
                 </Link>
                 <div
-                  className="dropdown-menu bg-success"
+                  className="dropdown-menu bg-warning"
                   aria-labelledby="navbarDropdown"
+                  id="dropdown-box"
                 >
-                  <Link class="dropdown-item" href="#">
+                  <Link
+                    class="dropdown-item d-flex justify-content-center"
+                    to="/profile"
+                  >
                     <img
                       src={props.dataUser.avatar}
                       alt="gambar-profil"
-                      className="gambar-profil"
+                      className="gambar-profil "
                     />
                   </Link>
-                  <Link class="dropdown-item" href="#">
+                  <Link class="dropdown-item" to="/profile">
                     Name : {props.dataUser.name}
                   </Link>
-                  <Link class="dropdown-item">
-                    gender : {props.dataUser.gender}
-                  </Link>
-                  <Link class="dropdown-item">
-                    Height : {props.dataUser.height}
-                  </Link>
-                  <Link class="dropdown-item">
-                    Weight : {props.dataUser.weight}
+                  <Link class="dropdown-item" to="/profile">
+                    Email : {props.dataUser.email}
                   </Link>
                 </div>
               </li>
@@ -143,7 +141,7 @@ const Navigation = (props, postSignout) => {
               </li>
             </ul>
           ) : (
-            <ul className="navbar-nav ml-auto m-5">
+            <ul className="navbar-nav ml-auto mx-5 px-5">
               <li className="nav-item">
                 <Link className="nav-link login" to="/signin">
                   Login
