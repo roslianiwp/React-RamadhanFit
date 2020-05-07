@@ -5,33 +5,8 @@
   margin-bottom: 20px;
 }
 
-/* .dropdown:hover>.dropdown-menu {
-  display: block;
-} */
-
 .gambar-profil {
   height: 150px;
   width: 150px;
   border-radius: 100%;
 }
-
-/* .profil-drop {
-  margin-right: 20px; */
-/* } */
-/* #dropdown-box {
-  border-radius: 10px;
-} */
-
-/* @media only screen and (max-width: 575px) {
-  .nav-link .login {
-    justify-content: center;
-  }
-
-  .profil-drop {
-    justify-content: center;
-  }
-
-  .nav-itemm .nav-link {
-    float: left;
-  }
-} */

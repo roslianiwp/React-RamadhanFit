@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {
   getRecipeNews,
   handleRequestKeyword,
-} from "../store/action/newsAction";
+} from "../store/action/actionNews";
 import { handleInputChat, talkChat } from "../store/action/actionChatBot";
 import Navigation from "../components/NavBar";
 import FooterBar from "../components/Footer";
@@ -54,6 +54,7 @@ const mapStateToProps = (state) => {
     dataSuggestion: state.newsRecipe.suggest,
     jawaban: state.chat.jawaban,
     ngobrol: state.chat.search,
+    login: state.user.is_login,
   };
 };
 

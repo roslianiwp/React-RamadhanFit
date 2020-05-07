@@ -7,20 +7,18 @@ export const handleInputChat = (event) => {
     dispatch(talkChat(value));
   };
 };
-
+const urlTalk = process.env.REACT_APP_BASE_URL;
+const apiKeyTalk = process.env.REACT_APP_API_KEY;
 export const talkChat = (keyword) => {
   return async (dispatch) => {
     try {
       const response = await axios({
         method: "GET",
-        url:
-          "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/converse",
+        url: "https://" + urlTalk + "/food/converse",
         headers: {
           "content-type": "application/octet-stream",
-          "x-rapidapi-host":
-            "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-          "x-rapidapi-key":
-            "8567d0e4d1msha36250d66c3afa2p1edacejsn2b549c9615dc",
+          "x-rapidapi-host": urlTalk,
+          "x-rapidapi-key": apiKeyTalk,
         },
         params: {
           text: keyword,

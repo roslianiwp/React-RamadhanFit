@@ -7,7 +7,7 @@ export const getStatusHealth = () => {
       height: getState().user.height,
     };
     await axios
-      .get("https://gabamnml-health-v1.p.rapidapi.com/bmi", bodyRequest)
+      .get(process.env.REACT_APP_BASE_URL_BMI, bodyRequest)
       .then(async (response) => {
         console.warn("cek api", response);
         dispatch({ type: "GET_STATUS", payload: response.data });
@@ -54,17 +54,21 @@ export const countBMR = () => {
   };
 };
 
+const urlTalk = process.env.REACT_APP_BASE_URL;
+const apiKeyTalk = process.env.REACT_APP_API_KEY;
+
 export const getHealthRecipe = () => {
   return async (dispatch, getState) => {
     axios({
       method: "GET",
       url:
-        "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate",
+        "https://" +
+        process.env.REACT_APP_BASE_URL +
+        "/recipes/mealplans/generate",
       headers: {
         "content-type": "application/octet-stream",
-        "x-rapidapi-host":
-          "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        "x-rapidapi-key": "8567d0e4d1msha36250d66c3afa2p1edacejsn2b549c9615dc",
+        "x-rapidapi-host": urlTalk,
+        "x-rapidapi-key": apiKeyTalk,
       },
       params: {
         timeFrame: "day",
