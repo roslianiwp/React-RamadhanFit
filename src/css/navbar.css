@@ -5,11 +5,8 @@
   margin-bottom: 20px;
 }
 
-/* #profil-background {
-  color: #13cf38;
-} */
-.nav-link .login {
-  margin-left: 20px;
+.dropdown:hover > .dropdown-menu {
+  display: block;
 }
 
 .gambar-profil {
@@ -18,6 +15,21 @@
   border-radius: 100%;
 }
 
-.profil-drop {
-  margin-right: 20px;
+/* .profil-drop {
+  margin-right: 20px; */
+/* } */
+#dropdown-box {
+  border-radius: 30px;
+}
+
+@media only screen and (max-width: 575px) {
+  .nav-link .login {
+    justify-content: center;
+  }
+  .profil-drop {
+    justify-content: center;
+  }
+  .nav-itemm .nav-link {
+    float: left;
+  }
 }
