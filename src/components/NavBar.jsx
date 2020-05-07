@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { doSignOut } from "../store/action/actionUser";
+import "../css/navbar.css";
 
 // INI HARUS DIBIKIN STATELESS!!!!!
 const Navigation = (props, postSignout) => {
@@ -23,10 +24,13 @@ const Navigation = (props, postSignout) => {
   const login = props.login;
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        className="navbar navbar-expand-lg navbar-primary"
+        id="shadow-box-navbar"
+      >
         <Link className="navbar-brand" to="/">
           <img
-            src={require("../images/ramadhan.jpeg")}
+            src={require("../images/kareem.jpg")}
             alt="logokabar"
             id="logokabar"
           ></img>
@@ -44,14 +48,14 @@ const Navigation = (props, postSignout) => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
+          <ul className="navbar-nav ">
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 Home <span className="sr-only">(current)</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/food">
+              <Link className="nav-link" to="/nutrient">
                 Food Nutrient<span className="sr-only">(current)</span>
               </Link>
             </li>
@@ -73,46 +77,82 @@ const Navigation = (props, postSignout) => {
                 UpToDate Ramadhan Food
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                 <Link
                   class="dropdown-item"
                   href=""
                   onClick={() => changeRouter("resep buka")}
                 >
-                  Iftar
+                  Iftar & Sahur
                 </Link>
                 <Link
                   class="dropdown-item"
                   onClick={() => changeRouter("puasa sehat")}
                 >
-                  Sahur
+                  Suggestions
+
                 </Link>
               </div>
             </li>
-            {login ? (
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/profile">
-                    Profile
+          </ul>
+          {login ? (
+            <ul className="navbar-nav  ml-auto m-5">
+              <li class="nav-item dropdown">
+                <Link
+                  class="nav-link dropdown-toggle profil-drop"
+                  href=""
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Profil
+                </Link>
+                <div
+                  className="dropdown-menu bg-success"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <Link class="dropdown-item" href="#">
+                    <img
+                      src={props.dataUser.avatar}
+                      alt="gambar-profil"
+                      className="gambar-profil"
+                    />
                   </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    className="nav-link"
-                    to="/signin"
-                    onClick={() => postSignout()}
-                  >
-                    Logout
+                  <Link class="dropdown-item" href="#">
+                    Name : {props.dataUser.name}
                   </Link>
-                </li>
-              </ul>
-            ) : (
+                  <Link class="dropdown-item">
+                    gender : {props.dataUser.gender}
+                  </Link>
+                  <Link class="dropdown-item">
+                    Height : {props.dataUser.height}
+                  </Link>
+                  <Link class="dropdown-item">
+                    Weight : {props.dataUser.weight}
+                  </Link>
+                </div>
+              </li>
+              <li className="nav-item ">
+                <Link
+                  className="nav-link"
+                  to="/signin"
+                  onClick={() => postSignout()}
+                >
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            <ul className="navbar-nav ml-auto m-5">
               <li className="nav-item">
-                <Link className="nav-link" to="/signin">
+                <Link className="nav-link login" to="/signin">
                   Login
                 </Link>
               </li>
-            )}
-          </ul>
+            </ul>
+          )}
         </div>
       </nav>
     </div>
@@ -121,6 +161,7 @@ const Navigation = (props, postSignout) => {
 const mapStateToProps = (state) => {
   return {
     login: state.user.is_login,
+    dataUser: state.user,
   };
 };
 const mapDispatchToProps = {

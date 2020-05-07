@@ -15,6 +15,9 @@ class SignIn extends Component {
   };
 
   render() {
+    const message = this.props.location.state
+      ? this.props.location.state.message
+      : "Ayo peduli kesehatanmu!";
     console.warn("cek props dari page signin", this.props);
     return (
       <div>
@@ -22,45 +25,50 @@ class SignIn extends Component {
         <div className="d-flex justify-content-center text-center">
           <section className="content">
             <div className="container text-center justify-content-center signin mt-5">
-              <form onSubmit={(e) => e.preventDefault()}>
-                <img
-                  src={require("../images/logo.jpg")}
-                  alt="logokabar"
-                  id="logokabar"
-                ></img>
-                <h4>Member Login</h4>
-                <form>
-                  <div className="form-group">
-                    <input
-                      className="form-control"
-                      id="button"
-                      aria-describedby="emailHelp"
-                      type="text"
-                      name="namaPengguna"
-                      placeholder="Username"
-                      onChange={(e) => this.props.changeInput(e)}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="button"
-                      placeholder="Password"
-                      name="kataKunci"
-                      onChange={(e) => this.props.changeInput(e)}
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="btn btn-primary mr-3"
-                    id="button"
-                    onClick={() => this.postLogin()}
-                  >
-                    Sign In
-                  </button>
-                </form>
-              </form>
+              <div className="row">
+                <div className="col-sm-12">
+                  <form onSubmit={(e) => e.preventDefault()}>
+                    <img
+                      src={require("../images/logo.jpg")}
+                      alt="logokabar"
+                      id="logokabar"
+                    ></img>
+                    <h4>Member Login</h4>
+                    <form>
+                      <div className="form-group">
+                        <input
+                          className="form-control"
+                          id="button-form"
+                          aria-describedby="emailHelp"
+                          type="text"
+                          name="namaPengguna"
+                          placeholder="Username"
+                          onChange={(e) => this.props.changeInput(e)}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <input
+                          type="password"
+                          className="form-control"
+                          id="button-form"
+                          placeholder="Password"
+                          name="kataKunci"
+                          onChange={(e) => this.props.changeInput(e)}
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        className="btn btn-primary mr-3"
+                        id="button"
+                        onClick={() => this.postLogin()}
+                      >
+                        Sign In
+                      </button>
+                    </form>
+                  </form>
+                  <p style={{ color: "red" }}>{message}</p>
+                </div>
+              </div>
             </div>
           </section>
         </div>

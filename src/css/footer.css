@@ -1,0 +1,25 @@
+#logo-sosmed {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-footer {
+  width: 150px;
+  height: 150px;
+}
+
+#shadow-box-footer {
+  -webkit-box-shadow: 0px -9px 4px -6px rgba(11, 47, 156, 1);
+  -moz-box-shadow: 0px -9px 4px -6px rgba(11, 47, 156, 1);
+  box-shadow: 0px -9px 4px -6px rgba(11, 47, 156, 1);
+  margin-top: 20px;
+}
+.icon {
+  font-size: 30px;
+}
+.name-icon {
+  font-size: 15px;
+}
+.foot-text {
+  font-size: 20px;
+}
