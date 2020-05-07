@@ -29,7 +29,7 @@ class Nutrient extends Component {
     } else {
       return (
         <React.Fragment>
-          <Navigation />
+          <Navigation {...this.props} />
           <div className="container">
             <div className="row">
               <div className="col-sm-12 d-flex justify-content-center">

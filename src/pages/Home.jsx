@@ -27,8 +27,10 @@ class Home extends Component {
     return (
       <React.Fragment>
         <Navigation
+          history={this.history}
           handleRouter={(e) => this.handleRequestKeywordNews(e)}
           getRecipeNews={() => this.getRecipeNews()}
+          {...this.props}
         />
         <div className="container">
           {this.props.dataRecipeNews.slice(0, 1).map((el, index) => {

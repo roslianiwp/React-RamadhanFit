@@ -21,7 +21,7 @@ class SignIn extends Component {
     console.warn("cek props dari page signin", this.props);
     return (
       <div>
-        <Navigation />
+        <Navigation {...this.props} />
         <div className="d-flex justify-content-center text-center">
           <section className="content">
             <div className="container text-center justify-content-center signin mt-5">

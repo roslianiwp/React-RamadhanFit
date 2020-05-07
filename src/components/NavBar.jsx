@@ -10,7 +10,7 @@ const Navigation = (props, postSignout) => {
     if (props.handleRouter) {
       props.handleRouter(keyword);
     } else {
-      await props.history.replace("/news-keyword/" + keyword);
+      props.history.replace("/news-keyword/" + keyword);
     }
   };
 
@@ -77,7 +77,6 @@ const Navigation = (props, postSignout) => {
                 UpToDate Ramadhan Food
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
                 <Link
                   class="dropdown-item"
                   href=""
@@ -90,7 +89,6 @@ const Navigation = (props, postSignout) => {
                   onClick={() => changeRouter("puasa sehat")}
                 >
                   Suggestions
-
                 </Link>
               </div>
             </li>
