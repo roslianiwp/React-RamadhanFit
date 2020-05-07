@@ -21,56 +21,60 @@ class SignIn extends Component {
     console.warn("cek props dari page signin", this.props);
     return (
       <div>
-        <Navigation />
-        <div className="d-flex justify-content-center text-center">
-          <section className="content">
-            <div className="container text-center justify-content-center signin mt-5">
-              <div className="row">
-                <div className="col-sm-12">
-                  <form onSubmit={(e) => e.preventDefault()}>
-                    <img
-                      src={require("../images/logo.jpg")}
-                      alt="logokabar"
-                      id="logokabar"
-                    ></img>
-                    <h4>Member Login</h4>
-                    <form>
-                      <div className="form-group">
-                        <input
-                          className="form-control"
-                          id="button-form"
-                          aria-describedby="emailHelp"
-                          type="text"
-                          name="namaPengguna"
-                          placeholder="Username"
-                          onChange={(e) => this.props.changeInput(e)}
-                        />
-                      </div>
-                      <div className="form-group">
-                        <input
-                          type="password"
-                          className="form-control"
-                          id="button-form"
-                          placeholder="Password"
-                          name="kataKunci"
-                          onChange={(e) => this.props.changeInput(e)}
-                        />
-                      </div>
-                      <button
-                        type="submit"
-                        className="btn btn-primary mr-3"
-                        id="button"
-                        onClick={() => this.postLogin()}
-                      >
-                        Sign In
-                      </button>
-                    </form>
-                  </form>
-                  <p style={{ color: "red" }}>{message}</p>
-                </div>
+        <Navigation {...this.props} />
+        <div className="container">
+          <div className="d-flex justify-content-center">
+            <div className="card" style={{ width: "18rem" }}>
+              <div className="card-body">
+                <section className="content">
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <form onSubmit={(e) => e.preventDefault()}>
+                        <img
+                          src={require("../images/logo.jpg")}
+                          alt="logokabar"
+                          id="logokabar"
+                        ></img>
+                        <h4>Member Login</h4>
+                        <form>
+                          <div className="form-group">
+                            <input
+                              className="form-control"
+                              id="button-form"
+                              aria-describedby="emailHelp"
+                              type="text"
+                              name="namaPengguna"
+                              placeholder="Username"
+                              onChange={(e) => this.props.changeInput(e)}
+                            />
+                          </div>
+                          <div className="form-group">
+                            <input
+                              type="password"
+                              className="form-control"
+                              id="button-form"
+                              placeholder="Password"
+                              name="kataKunci"
+                              onChange={(e) => this.props.changeInput(e)}
+                            />
+                          </div>
+                          <button
+                            type="submit"
+                            className="btn btn-primary badge-pill mr-3 mb-3"
+                            id="button"
+                            onClick={() => this.postLogin()}
+                          >
+                            Sign In
+                          </button>
+                        </form>
+                      </form>
+                      <p style={{ color: "red" }}>{message}</p>
+                    </div>
+                  </div>
+                </section>
               </div>
             </div>
-          </section>
+          </div>
         </div>
         <FooterBar />
       </div>

@@ -1,16 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { doSignOut } from "../store/action/actionUser";
 import "../css/navbar.css";
 
-// INI HARUS DIBIKIN STATELESS!!!!!
 const Navigation = (props, postSignout) => {
   const changeRouter = async (keyword) => {
     if (props.handleRouter) {
       props.handleRouter(keyword);
     } else {
-      await props.history.replace("/news-keyword/" + keyword);
+      props.history.replace("/news-keyword/" + keyword);
     }
   };
 
@@ -23,17 +20,21 @@ const Navigation = (props, postSignout) => {
 
   const login = props.login;
   return (
-    <div>
+    <div className="text-left">
       <nav
         className="navbar navbar-expand-lg navbar-primary"
         id="shadow-box-navbar"
       >
-        <Link className="navbar-brand" to="/">
+        <Link
+          className="navbar-brand"
+          to="/"
+          onClick={props.getRecipeNews ? () => props.getRecipeNews() : null}
+        >
           <img
             src={require("../images/kareem.jpg")}
             alt="logokabar"
             id="logokabar"
-          ></img>
+          />
           Ramadhan Fit
         </Link>
         <button
@@ -48,23 +49,19 @@ const Navigation = (props, postSignout) => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ">
-            <li className="nav-item">
+          <ul className="navbar-nav">
+            <li className="nav-item ml-5">
               <Link className="nav-link" to="/">
                 Home <span className="sr-only">(current)</span>
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item ml-5">
               <Link className="nav-link" to="/nutrient">
                 Food Nutrient<span className="sr-only">(current)</span>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/sport">
-                Sport Fast <span className="sr-only">(current)</span>
-              </Link>
-            </li>
-            <li class="nav-item dropdown">
+
+            <li class="nav-item dropdown ml-5">
               <Link
                 class="nav-link dropdown-toggle"
                 href=""
@@ -74,7 +71,7 @@ const Navigation = (props, postSignout) => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                UpToDate Ramadhan Food
+                Ramadhan Info
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link
@@ -97,7 +94,7 @@ const Navigation = (props, postSignout) => {
             <ul className="navbar-nav  ml-auto mx-5 py-5">
               <li class="nav-item dropleft">
                 <Link
-                  class="nav-link dropdown-toggle profil-drop"
+                  class="nav-link dropdown-toggle profil-drop ml-5"
                   href=""
                   id="navbarDropdown"
                   role="button"
@@ -117,22 +114,22 @@ const Navigation = (props, postSignout) => {
                     to="/profile"
                   >
                     <img
-                      src={props.dataUser.avatar}
+                      src={props.avatar}
                       alt="gambar-profil"
                       className="gambar-profil "
                     />
                   </Link>
                   <Link class="dropdown-item" to="/profile">
-                    Name : {props.dataUser.name}
+                    Name : {props.name}
                   </Link>
                   <Link class="dropdown-item" to="/profile">
-                    Email : {props.dataUser.email}
+                    Email : {props.email}
                   </Link>
                 </div>
               </li>
               <li className="nav-item ">
                 <Link
-                  className="nav-link"
+                  className="nav-link ml-5"
                   to="/signin"
                   onClick={() => postSignout()}
                 >
@@ -141,9 +138,9 @@ const Navigation = (props, postSignout) => {
               </li>
             </ul>
           ) : (
-            <ul className="navbar-nav ml-auto mx-5 px-5">
+            <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link className="nav-link login" to="/signin">
+                <Link className="nav-link login ml-5" to="/signin">
                   Login
                 </Link>
               </li>
@@ -154,14 +151,5 @@ const Navigation = (props, postSignout) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    login: state.user.is_login,
-    dataUser: state.user,
-  };
-};
-const mapDispatchToProps = {
-  doSignOut,
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default Navigation;
