@@ -8,7 +8,7 @@ class FooterBar extends Component {
           <div
             class="row justify-content-center"
             style={{
-              backgroundColor: "#19345E",
+              backgroundColor: "#50D027",
               marginTop: "100px",
               paddingBottom: "42px",
             }}
