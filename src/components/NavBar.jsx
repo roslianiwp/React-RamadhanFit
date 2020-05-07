@@ -7,7 +7,9 @@ import { doSignOut } from "../store/action/actionUser";
 const Navigation = (props, postSignout) => {
   postSignout = () => {
     props.doSignOut();
-    props.history.push("/");
+    if (!props.login) {
+      props.history.push("/");
+    }
   };
   const login = props.login;
   return (
