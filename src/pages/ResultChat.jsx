@@ -19,7 +19,7 @@ class ResultChat extends Component {
   };
 
   render() {
-    // console.warn("cek dari resultchat", this.props);
+    console.warn("cek dari resultchat", this.props);
     return (
       <React.Fragment>
         <Navigation
