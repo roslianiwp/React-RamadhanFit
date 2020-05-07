@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { doSignOut } from "../store/action/actionUser";
 
+// INI HARUS DIBIKIN STATELESS!!!!!
 const Navigation = (props, postSignout) => {
   postSignout = () => {
     props.doSignOut();
@@ -14,7 +15,6 @@ const Navigation = (props, postSignout) => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link className="navbar-brand" to="/">
           <img
-            className="App-logo"
             src={require("../images/ramadhan.jpeg")}
             alt="logokabar"
             id="logokabar"

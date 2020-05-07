@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-// import Navigation from "../components/NavigationBar";
+import Navigation from "../components/NavBar";
+import FooterBar from "../components/Footer";
 import { connect } from "react-redux";
 import { doLogin, changeInputUser } from "../store/action/actionUser";
 import "../css/SignIn.css";
@@ -17,7 +18,7 @@ class SignIn extends Component {
     console.warn("cek props dari page signin", this.props);
     return (
       <div>
-        {/* <Navigation {...this.props} /> */}
+        <Navigation />
         <div className="d-flex justify-content-center text-center">
           <section className="content">
             <div className="container text-center justify-content-center signin mt-5">
@@ -63,6 +64,7 @@ class SignIn extends Component {
             </div>
           </section>
         </div>
+        <FooterBar />
       </div>
     );
   }
