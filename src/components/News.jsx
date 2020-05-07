@@ -1,7 +1,8 @@
 import React from "react";
+import moment from "moment";
 
 const NewsPage = (props) => {
-  const { title, image, description, url } = props;
+  const { title, image, description, url, publishedAt } = props;
   return (
     <div className="mb-3">
       <div className="card">
@@ -10,10 +11,12 @@ const NewsPage = (props) => {
         </div>
         <div className="card-footer">
           <a href={url}>
-            <h5 className="card-title">{title}</h5>
+            <h5 className="card-title mb-3">{title}</h5>
           </a>
           <p className="card-text">{description}</p>
-          <small className="text-muted">Last updated beberapa tahun</small>
+          <small className="text-muted">
+            Last updated {moment({ publishedAt }).fromNow()}
+          </small>
         </div>
       </div>
     </div>

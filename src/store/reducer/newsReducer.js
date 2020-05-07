@@ -1,5 +1,6 @@
 const initialState = {
     data: [],
+    suggest: [],
 }
 
 export default function newRecipeReducer(newsState = initialState, action) {
@@ -7,9 +8,16 @@ export default function newRecipeReducer(newsState = initialState, action) {
         case "GET_RECIPE_NEWS":
             return {
                 ...newsState,
-                data: action.payload
+                data: action.payload,
             }
-            default:
-                return newsState
+            case "GET_KEYWORD":
+                return {
+                    ...newsState,
+                    data: action.payload,
+                        is_food: true
+                }
+
+                default:
+                    return newsState
     }
 }
