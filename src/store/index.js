@@ -2,10 +2,12 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import newRecipeReducer from "./reducer/newsReducer";
 import userReducer from "./reducer/reducerUser";
+import nutrientReducer from "./reducer/reducerNutrient";
 
 const rootReducer = combineReducers({
   newsRecipe: newRecipeReducer,
   user: userReducer,
+  nutrient: nutrientReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

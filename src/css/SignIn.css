@@ -3,22 +3,19 @@
   height: 100px;
 }
 
-#movie {
-  height: 300px;
-}
-
-.cont-movie {
-  margin-top: 50px;
-}
-
 #button {
   border-radius: 50px;
-  width: 400px;
+  width: 50%;
 }
 
 .signin {
   border: 1px grey;
-  border-radius: 20px;
+  border-radius: 10%;
   box-shadow: 5px 5px 10px #888888;
-  padding: 50px 50px;
+  /* padding: 50px 50px; */
+}
+
+#button-form {
+  width: 100%;
+  border-radius: 50px;
 }

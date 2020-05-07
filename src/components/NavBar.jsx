@@ -42,7 +42,7 @@ const Navigation = (props, postSignout) => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/food">
+              <Link className="nav-link" to="/nutrient">
                 Food Nutrient<span className="sr-only">(current)</span>
               </Link>
             </li>
