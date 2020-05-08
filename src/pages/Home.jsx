@@ -37,6 +37,7 @@ class Home extends Component {
           avatar={this.props.dataUser.avatar}
           name={this.props.dataUser.name}
           email={this.props.dataUser.email}
+          status={this.props.status}
           {...this.props}
         />
         <div className="container">
@@ -88,6 +89,7 @@ const mapStateToProps = (state) => {
     ngobrol: state.chat.search,
     login: state.user.is_login,
     dataUser: state.user,
+    status: state.nutrient.status,
   };
 };
 

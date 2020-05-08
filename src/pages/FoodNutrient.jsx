@@ -3,7 +3,11 @@ import { connect } from "react-redux";
 import Navigation from "../components/NavBar";
 import FooterBar from "../components/Footer";
 import { Redirect } from "react-router-dom";
-import { countBMR, getHealthRecipe } from "../store/action/actionNutrient";
+import {
+  countBMR,
+  getHealthRecipe,
+  getStatusHealth,
+} from "../store/action/actionNutrient";
 import { doSignOut } from "../store/action/actionUser";
 import FoodNutrientProfile from "../components/FoodNutrientProfile";
 import FoodNutrientMenu from "../components/FoodNutrientMenu";
@@ -11,11 +15,13 @@ import FoodNutrientMenu from "../components/FoodNutrientMenu";
 class Nutrient extends Component {
   componentDidMount = async () => {
     console.warn("cobaaa cek props dari nutrient halaman", this.props);
+    this.props.getStatusHealth();
     this.props.countBMR();
     this.props.getHealthRecipe();
   };
 
   render() {
+    console.log("cek dari food nutrient", this.props);
     if (this.props.login === false) {
       return (
         <Redirect
@@ -47,6 +53,7 @@ class Nutrient extends Component {
                   bmr={this.props.bmr}
                   avatar={this.props.avatar}
                   status={this.props.status}
+                  ideal={this.props.ideal}
                 />
               </div>
             </div>
@@ -83,6 +90,7 @@ const mapStateToProps = (state) => {
     weight: state.user.weight,
     height: state.user.height,
     status: state.nutrient.status,
+    ideal: state.nutrient.ideal,
     bmr: state.nutrient.bmr,
     login: state.user.is_login,
     resep: state.nutrient.resep,
@@ -94,6 +102,7 @@ const mapDispatchToProps = {
   countBMR,
   getHealthRecipe,
   doSignOut,
+  getStatusHealth,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nutrient);

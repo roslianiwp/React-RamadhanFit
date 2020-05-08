@@ -3,6 +3,7 @@ const initialState = {
   status: "",
   resep: [],
   nutrisi: [],
+  ideal: 0,
 };
 
 export default function nutrientReducer(nutrientState = initialState, action) {
@@ -15,7 +16,8 @@ export default function nutrientReducer(nutrientState = initialState, action) {
     case "GET_STATUS":
       return {
         ...nutrientState,
-        status: action.payload,
+        status: action.payloadSatu,
+        ideal: action.payloadDua,
       };
     case "GET_RESEP":
       return {

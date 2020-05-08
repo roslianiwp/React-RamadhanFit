@@ -6,13 +6,28 @@ export const getStatusHealth = () => {
       weight: getState().user.weight,
       height: getState().user.height,
     };
-    await axios
-      .get(process.env.REACT_APP_BASE_URL_BMI, bodyRequest)
-      .then(async (response) => {
-        console.warn("cek api", response);
-        dispatch({ type: "GET_STATUS", payload: response.data });
+    axios({
+      method: "GET",
+      url: "https://gabamnml-health-v1.p.rapidapi.com/bmi",
+      headers: {
+        "content-type": "application/octet-stream",
+        "x-rapidapi-host": "gabamnml-health-v1.p.rapidapi.com",
+        "x-rapidapi-key": "8567d0e4d1msha36250d66c3afa2p1edacejsn2b549c9615dc",
+      },
+      params: {
+        weight: bodyRequest.weight,
+        height: "1.80",
+      },
+    })
+      .then((response) => {
+        console.warn("cek api bmi", response);
+        dispatch({
+          type: "GET_STATUS",
+          payloadSatu: response.data.status,
+          payloadDua: response.data.ideal_weight.man,
+        });
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };
