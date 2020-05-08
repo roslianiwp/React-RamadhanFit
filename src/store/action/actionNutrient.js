@@ -1,5 +1,8 @@
 import axios from "axios";
 
+const urlTalk = process.env.REACT_APP_BASE_URL;
+const apiKeyTalk = process.env.REACT_APP_API_KEY;
+
 export const getStatusHealth = () => {
   return async (dispatch, getState) => {
     const bodyRequest = {
@@ -12,20 +15,30 @@ export const getStatusHealth = () => {
       headers: {
         "content-type": "application/octet-stream",
         "x-rapidapi-host": "gabamnml-health-v1.p.rapidapi.com",
-        "x-rapidapi-key": "8567d0e4d1msha36250d66c3afa2p1edacejsn2b549c9615dc",
+        "x-rapidapi-key": apiKeyTalk,
       },
       params: {
         weight: bodyRequest.weight,
-        height: "1.80",
+        height: parseFloat(bodyRequest.height / 100).toFixed(2),
       },
     })
       .then((response) => {
         console.warn("cek api bmi", response);
-        dispatch({
-          type: "GET_STATUS",
-          payloadSatu: response.data.status,
-          payloadDua: response.data.ideal_weight.man,
-        });
+        const gender = getState().user.gender
+        if (gender === "Male") {
+          dispatch({
+            type: "GET_STATUS",
+            payloadSatu: response.data.status,
+            payloadDua: response.data.ideal_weight.man,
+          });
+        }
+        else {
+          dispatch({
+            type: "GET_STATUS",
+            payloadSatu: response.data.status,
+            payloadDua: response.data.ideal_weight.woman,
+          });
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -60,7 +73,7 @@ export const countBMR = () => {
       BMR *= 0.6;
     } else if (statusHealth.status === "Low") {
       BMR *= 1.8;
-    } else if (statusHealth.status === "Normal") {
+    } else if (statusHealth.status === "Regular") {
       BMR *= 1.2;
     }
     if (BMR !== undefined) {
@@ -68,9 +81,6 @@ export const countBMR = () => {
     }
   };
 };
-
-const urlTalk = process.env.REACT_APP_BASE_URL;
-const apiKeyTalk = process.env.REACT_APP_API_KEY;
 
 export const getHealthRecipe = () => {
   return async (dispatch, getState) => {
