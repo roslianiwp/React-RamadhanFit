@@ -32,7 +32,7 @@ export const getStatusHealth = () => {
             payloadDua: response.data.ideal_weight.man,
           });
         }
-        else {
+        else if (gender === "Female") {
           dispatch({
             type: "GET_STATUS",
             payloadSatu: response.data.status,
